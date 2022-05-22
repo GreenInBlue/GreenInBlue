@@ -34,11 +34,11 @@
     }
   },
   {
-    "day": 1997,
+    "day": "...",
     "basic": {
       "mood": 1,
-      "day": 1997,
-      "content": "<img src='https://tvax2.sinaimg.cn/crop.0.0.996.996.180/006NZA8ply8gfbrtpuz15j30ro0ro78q.jpg?KID=imgbed,tva&amp;Expires=1653225736&amp;ssig=mH7CVjNPSL' class='woo-avatar-img'>"
+      "day": 0,
+      "content": ""
     }
   }
 ]
