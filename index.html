@@ -2,24 +2,69 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="icon" href="/favicon.ico" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <title>落雪森林</title>
-    <script  src="https://code.jquery.com/jquery-3.6.0.min.js"
-      type="text/javascript"></script>
-    <script type="module" crossorigin src="/assets/index.5d7c7f2e.js"></script>
-    <link rel="stylesheet" href="/assets/index.976de503.css">
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      type="text/javascript"
+    ></script>
+    <script type="module" crossorigin src="/assets/index.1d327403.js"></script>
+    <link rel="stylesheet" href="/assets/index.c9465e79.css">
   </head>
   <style>
-    body{
-      background-color:cornsilk !important;
+    body {
+      background-color: beige !important;
       min-width: 320px;
-    }
-    html,body{
       height: 100%;
+    }
+    html {
+      height: 100%;
+    }
+    .loading {
+      width: 360px;
+      height: 220px;
+      left: 50%;
+      top: 50%;
+      margin-left: -180px;
+      margin-top: -110px;
+      position: absolute;
+    }
+    @media screen and (max-width: 870px) {
+      body {
+        background-color: #256c6e !important;
+      }
     }
   </style>
   <body id="app">
+    <div class="loading">
+      <iframe
+        scrolling="no"
+        src="https://tianqiapi.com/api.php?style=tr&skin=cake"
+        frameborder="0"
+        width="325"
+        height="220"
+        allowtransparency="true"
+      ></iframe>
+    </div>
+
+    <!-- <div class="scanner" onClick="showPage()">
+          <div>你好,陌生人.</div>
+          <div>欢迎来到我的森林</div>
+          <div>这些是我撒下的面包屑.</div>
+          <div>树洞里藏着我的秘密,</div>
+          <div>有些幼稚</div>
+          <div>有些古怪</div>
+          <div>有些灰暗</div>
+          <div>也有些...</div>
+          <div>我想   有一天</div>
+          <div>沿着它也许能找到回去的路.</div>
+          <div>. . .</div>
+        </div> -->
+    <div></div>
     
   </body>
 </html>
