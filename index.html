@@ -27,9 +27,9 @@
         }
         window.close();
       }
-      $(window).resize(function(){
+      $(window).resize(function () {
         $("body").height(window.innerHeight);
-      })
+      });
       var url = "str.json";
       var mySite = "";
       var welcome = "";
@@ -60,9 +60,10 @@
                 intLen = $("#typed").html().length;
               }
             });
-            $("body").bind('click',function(){
-              $("#hi").focus();
-            })
+            $("body").bind("click", function () {
+              var tmp = $("#hi").val();
+              $("#hi").val("").focus().val(tmp);
+            });
             $("body").height(window.innerHeight);
             $("#hi").focus();
             $(document).keyup(function (e) {
