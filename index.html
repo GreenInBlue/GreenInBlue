@@ -88,7 +88,7 @@
           setTimeout(function () {
             closePage();
           }, 1500);
-        } else if (inputStr == "ENTER" || inputStr == "HELLO") {
+        } else if (inputStr == "ENTER" || inputStr.indexOf("HELLO") > -1 || inputStr.indexOf("HI") > -1) {
           $("#typed").html(
             $("#typed").html() + "\n>&nbsp;" + welcome + "\n>&nbsp;"
           );
