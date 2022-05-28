@@ -1,0 +1,13 @@
+{
+	"strings": [
+		"> ^300start",
+		"> start\n\tloading...^50 3",
+		"> start\n\tloading... 2",
+		"> start\n\tloading... 1",
+		"> start\n\tloading... 0",
+		"> start\n\tloading... \n> Hello!\n>&nbsp;"
+	],
+	"href": "https://lihongxun.cn",
+	"welcome": "你好,朋友. 欢迎来到我的森林.",
+	"tips":"enter --进入我的森林\t exit/quit --退出"
+}
