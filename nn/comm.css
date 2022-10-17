@@ -1,0 +1,143 @@
+body {
+    font-size: 1.3rem;
+    max-width: 40rem;
+    /* background: linear-gradient(to right, #d7f9defa, #c0d4f6);*/
+    background: #D6EAF8;
+    transition: background-color .5s;
+}
+
+.input-text {
+    line-height: inherit;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 0;
+    font-weight: 400;
+    color: #495057;
+    white-space: nowrap;
+}
+
+li {
+    list-style-type: none !important;
+}
+
+a {
+    text-decoration: none;
+    margin-left: 3px;
+}
+
+.btn {
+    padding: 3px 8px 3px 6px;
+    font-size: 1rem;
+}
+
+.foot-item {
+    float: right;
+    margin-left: 3px;
+    font-size: 0.8rem;
+    font-style: italic;
+}
+
+.split-sign {
+    margin: 0 3px;
+    color: transparent;
+}
+
+
+#content {
+    position: fixed;
+    bottom: 32%;
+    left: 6%;
+    width: 88%;
+    height: 50%;
+    z-index: 1000;
+    text-align: center;
+}
+
+
+#tableTree {
+    width: 98%;
+}
+
+#tableTree tr td:last-child {
+    text-align: right;
+    margin-right: 150px;
+}
+
+.bottom_layer {
+    position: fixed;
+    z-index: 302;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4.6rem;
+    line-height: 1.5rem;
+    font-size: 1rem;
+    margin: 0;
+    padding: auto;
+    overflow: hidden;
+    zoom: 1;
+    background: rgb(59, 60, 61);
+    color: white;
+    text-align: center;
+}
+
+.bottom_layer a {
+    display: inline-block !important;
+    text-decoration: none !important;
+    height: 20px !important;
+    line-height: 20px !important;
+}
+
+.bottom_layer p {
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    margin: 0px 0px 0px 5px;
+    color: whitesmoke;
+}
+
+
+.foot {
+    position: fixed;
+    width: 43%;
+    text-align: left;
+    bottom: 10%;
+    right: 1%;
+    z-index: 10;
+    color: rgba(236, 10, 97, 0.952);
+    padding: .5rem;
+    border-radius: .5rem;
+    font-size: 1.1rem;
+    font-family: fangsong;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+.logo-text {
+    position: fixed;
+    top: 7%;
+    width: 100%;
+    z-index: 1000;
+    color: darkgrey;
+    font-family: fangsong, monospace, Arial, SimSun, sans-serif;
+    width: 100%;
+    text-align: center;
+}
+#fDate{
+    color: rgb(184, 115, 67);
+    margin: 1px;
+}
+#big{
+    font-size: x-large;
+    margin: 15px;
+    color: red;
+    line-height: 3rem;
+}
+#today{
+    margin-bottom: 60px;
+    color: rgb(6, 95, 95);
+}
+#record{
+    margin: 20px;
+}

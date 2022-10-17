@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="robots" content="noarchive">
+  <meta charset="UTF-8" />
+  <meta http-equiv="Expires" content="0">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-control" content="no-cache">
+  <meta http-equiv="Cache" content="no-cache">
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="./comm.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title></title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    $(window).resize(function () {
+      $("body").height(window.innerHeight);
+    });
+    var fDate;
+    var weeks = ["日","一","二","三","四","五","六"]
+    $(function () {
+        $("#today").html("今天是"+(new Date().getMonth()+1)+"月"+new Date().getDate()+"日 星期"+weeks[new Date().getDay()]);
+        var data = getCycle();
+        $("#fDate").html(getDays(fDate));
+        if(data.lastDate == null || data.nextDate == null){
+            $("#record").html("还没有数据");
+        }
+        var nextDays = getDays(new Date(),data.nextDate);
+        var lastDays = getDays(data.lastDate,new Date());
+        if(lastDays >= 0 && lastDays < 5){
+            if(data.isReal){
+              $("#record").html("姨妈第"+(lastDays+1)+"天");
+            }else{
+              $("#record").html("预计是姨妈第"+(lastDays+1)+"天");
+            }
+            $("#big").html("忌冷、辣、油腻!<br/>适当活动~别劳累<br/>多喝热水哦~")
+        }else if(nextDays < 19 && nextDays >= 10){
+          if(nextDays < 19 && nextDays > 14){
+            $("#record").html("预计距离排卵期还有"+(nextDays-14)+"天");
+          }else if(nextDays <= 14 && nextDays >= 10){
+              $("#record").html("预计排卵期第"+(15-nextDays)+"天");
+          }
+          $("#big").html("保护好自己哦~")
+        }else if(nextDays < 10){
+          $("#record").html("下次姨妈预计还有"+nextDays+"天");
+          $("#big").html("买榴莲!<br/>买榴莲!<br/>买榴莲!");
+        }else{
+          $("#record").html("预计距离排卵期还有"+(nextDays-14)+"天");
+          $("#big").html("今天风和日丽~")
+        }
+    })
+    // 获取周期计算值
+    var getCycle = function(){
+        var cycle = 30;
+        var lastDate;
+        var nextDate;
+        var isReal = false; // false时为预测值 true为记录值
+        $.ajaxSettings.async = false;
+        $.getJSON("record.json?v=1017", function (result) {
+            var data = result.thatDates;
+            fDate = new Date(result.encounterDate);
+            if(data && data.length > 0){
+                lastDate = new Date(data[data.length - 1]);
+                if(data.length > 1){
+                    var sum = 0;
+                    var cnt = 0;
+                    for(var i=data.length-1;i>0;i--){
+                        var intervalDays = getDays(data[i-1],data[i]);
+                        if( intervalDays >= 21 && intervalDays <= 35){
+                            sum += intervalDays;
+                            cnt ++;
+                        }
+                        if(cnt > 5){
+                          break;
+                        }
+                    }
+                    if(sum > 0){
+                        cycle = (sum / cnt).toFixed(0);
+                    }
+                }
+                nextDate = lastDate;
+                if(getDays(lastDate) < cycle){
+                  isReal = true;
+                }
+                while(getDays(new Date(),nextDate)<1){
+                    lastDate = new Date(nextDate);
+                    nextDate = addDay(cycle,nextDate);
+                }
+                $("#lastDate").html("上次姨妈日期:" + (lastDate.getMonth()+1)+"月"+lastDate.getDate()+"日" )
+                
+            }
+        });
+        return {"cycle" : cycle,"lastDate":lastDate,"nextDate":nextDate,"isReal":isReal}
+    }
+    // 计算两时间相差天数
+    var getDays = function(begin,end){
+        if(begin == null){
+            return 0;
+        }
+        if(end == null){
+            end = new Date();
+        }
+        return parseInt((new Date(end) - new Date(begin))/3600000/24);
+    }
+    function addDay(dayNumber, date) {
+        date = date ? date : new Date();
+        var ms = dayNumber * (1000 * 60 * 60 * 24)
+        var newDate = new Date(date.getTime() + ms);
+        return newDate;
+    }
+  </script>
+</head>
+
+<body style="background: #3deb7a8c">
+  <h3 class="logo-text"></h3>
+  <div class="main">
+      <div id="content">
+        <div id="today"></div>
+        <div id="record"></div>
+        <div id="lastDate"></div>
+        <div id="big">
+          大号字
+        </div>
+      </div>
+
+      <div class="foot">
+          <span></span>
+      </div>
+      <div class="bottom_layer">
+          <div style="width:300px;margin:0 auto; padding:0px 0;display: contents;">
+              今天是有你陪伴的第<span id="fDate"></span>天<br/>
+              遇见你是我这辈子最最幸运最最幸福的事情哦 ^_^<br/>
+              温柔而明亮 繁华而有致
+          </div>
+      </div>
+  </div>
+</body>
+
+</html>
