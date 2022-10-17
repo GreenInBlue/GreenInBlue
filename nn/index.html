@@ -33,21 +33,24 @@
             }else{
               $("#record").html("预计是姨妈第"+(lastDays+1)+"天");
             }
-            $("#big").html("忌冷、辣、油腻!<br/>适当活动~别劳累<br/>多喝热水哦~")
-        }else if(nextDays < 19 && nextDays >= 10){
-          if(nextDays < 19 && nextDays > 14){
-            $("#record").html("预计距离排卵期还有"+(nextDays-14)+"天");
-          }else if(nextDays <= 14 && nextDays >= 10){
-              $("#record").html("预计排卵期第"+(15-nextDays)+"天");
-          }
-          $("#big").html("保护好自己哦~")
-        }else if(nextDays < 10){
-          $("#record").html("下次姨妈预计还有"+nextDays+"天");
-          $("#big").html("买榴莲!<br/>买榴莲!<br/>买榴莲!");
+            $("#big").html("忌冷、辣、油腻!<br/>适当活动~别劳累<br/>多喝热水哦~");
         }else{
-          $("#record").html("预计距离排卵期还有"+(nextDays-14)+"天");
-          $("#big").html("今天风和日丽~")
-        }
+          $("#lastDate").html("上次姨妈日期:" + (data.lastDate.getMonth()+1)+"月"+data.lastDate.getDate()+"日" );
+          if(nextDays < 19 && nextDays >= 10){
+            if(nextDays < 19 && nextDays > 14){
+              $("#record").html("预计距离排卵期还有"+(nextDays-14)+"天");
+            }else if(nextDays <= 14 && nextDays >= 10){
+                $("#record").html("预计排卵期第"+(15-nextDays)+"天");
+            }
+            $("#big").html("保护好自己哦~")
+          }else if(nextDays < 10){
+            $("#record").html("下次姨妈预计还有"+nextDays+"天");
+            $("#big").html("买榴莲!<br/>买榴莲!<br/>买榴莲!");
+          }else{
+            $("#record").html("预计距离排卵期还有"+(nextDays-14)+"天");
+            $("#big").html("今天风和日丽~")
+          }
+        } 
     })
     // 获取周期计算值
     var getCycle = function(){
@@ -86,8 +89,6 @@
                     lastDate = new Date(nextDate);
                     nextDate = addDay(cycle,nextDate);
                 }
-                $("#lastDate").html("上次姨妈日期:" + (lastDate.getMonth()+1)+"月"+lastDate.getDate()+"日" )
-                
             }
         });
         return {"cycle" : cycle,"lastDate":lastDate,"nextDate":nextDate,"isReal":isReal}
