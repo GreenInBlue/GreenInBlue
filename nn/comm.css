@@ -1,9 +1,9 @@
 body {
     font-size: 1.3rem;
     max-width: 40rem;
-    /* background: linear-gradient(to right, #d7f9defa, #c0d4f6);*/
-    background: #D6EAF8;
-    transition: background-color .5s;
+    background-image: url("./img/bg2.png");
+    background-size: cover;
+    background-position: 20% 20%;
 }
 
 .input-text {
@@ -78,6 +78,7 @@ a {
     overflow: hidden;
     zoom: 1;
     background: rgb(59, 60, 61);
+    opacity:0.8; 
     color: white;
     text-align: center;
 }
