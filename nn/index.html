@@ -12,6 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <title></title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+  <script src="weather.js" type="text/javascript"></script>
   <script type="text/javascript">
     $(window).resize(function () {
       $("body").height(window.innerHeight);
@@ -45,10 +46,10 @@
             $("#big").html("保护好自己哦~")
           }else if(nextDays < 10){
             $("#record").html("下次姨妈预计还有"+nextDays+"天");
-            $("#big").html("买榴莲!<br/>买榴莲!<br/>买榴莲!");
+            $("#big").html("买榴莲!<br/>买榴莲!<br/>买榴莲!"+weatherTips);
           }else{
             $("#record").html("预计距离排卵期还有"+(nextDays-14)+"天");
-            $("#big").html("今天风和日丽~")
+            $("#big").html("今天风和日丽~"+weatherTips)
           }
         } 
     })
@@ -119,9 +120,7 @@
         <div id="today"></div>
         <div id="record"></div>
         <div id="lastDate"></div>
-        <div id="big">
-          大号字
-        </div>
+        <div id="big"></div>
       </div>
 
       <div class="foot">
